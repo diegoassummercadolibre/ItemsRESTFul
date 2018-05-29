@@ -1,11 +1,11 @@
-# ItemsRESTFul
-API RESTful para realizar operacion CRUD de Items. 
+# ItemsRESTful
+API RESTful desarrollada en Java, la cual permite realizar operaciones CRUD de Items. 
 
 ## Tecnologias utilizadas
-Esta API esta desarrollada en Java 8 y utiliza una base de datos no relacional llamada Elastic Search. Ademas hace uso de otras librerias y frameworks como Spark, Gson, etc.
+Esta API esta desarrollada en **Java 8** y utiliza una base de datos no relacional llamada **Elastic Search**. Además hace uso de otras librerías y frameworks como **Spark**, **Gson**, etc.
 
 ## Instrucciones de uso
-1. Instalar y ejecutar ElasticSearch. Puede descargarlo desde [aqui](https://www.elastic.co/downloads/elasticsearch).
+1. Instalar y ejecutar ElasticSearch. Puede descargarlo desde [aquí](https://www.elastic.co/downloads/elasticsearch).
 2. Abrir y ejecutar el proyecto Java.
 
 ## Métodos
