@@ -2,14 +2,13 @@
 API RESTful para realizar operacion CRUD de Items. 
 
 ## Tecnologias utilizadas
-Esta API esta desarrollada en Java 8 y utiliza una base de datos no relacional llamada Elastic Search. Ademas hace uso de Spark, Gson, etc.
+Esta API esta desarrollada en Java 8 y utiliza una base de datos no relacional llamada Elastic Search. Ademas hace uso de otras librerias y frameworks como Spark, Gson, etc.
 
 ## Instrucciones de uso
 1. Instalar y ejecutar ElasticSearch. Puede descargarlo desde [aqui](https://www.elastic.co/downloads/elasticsearch).
 2. Abrir el proyecto con algun IDE de Java, como puede ser Intellig.
-3. Utlizar un
 
-## Metodos CRUD
+## Metodos
 La API posee un único recurso llamado **Items** el cual posee los siguientes metodos:
 
 ### GET /items
