@@ -6,13 +6,13 @@ Esta API esta desarrollada en Java 8 y utiliza una base de datos no relacional l
 
 ## Instrucciones de uso
 1. Instalar y ejecutar ElasticSearch. Puede descargarlo desde [aqui](https://www.elastic.co/downloads/elasticsearch).
-2. Abrir el proyecto con algun IDE de Java, como puede ser Intellig.
+2. Abrir y ejecutar el proyecto Java.
 
-## Metodos
-La API posee un único recurso llamado **Items** el cual posee los siguientes metodos:
+## Métodos
+La API posee un único recurso llamado **Items** el cual posee los siguientes métodos:
 
 ### GET /items
-Con este metodo se podra obtener un listado de todos los items creados en la base de datos.
+Con este método se podra obtener un listado de todos los items creados en la base de datos.
 
 **Parameter Content Type: application/json**
 **____________________________________________________________________________________________**
@@ -59,7 +59,9 @@ Este método actualiza el item correspondiente a id enviado como query parameter
 **Body**
 
 *{
+
   "id": "MLA1527625776195",
+  
   "title": "Item de test - Actualizado",
   "category_id": "MLA5529",
   "price": 10,
@@ -81,6 +83,7 @@ Este método actualiza el item correspondiente a id enviado como query parameter
 }*
 
 **Parameter Content Type: application/json**
+**____________________________________________________________________________________________**
 
 ### DELETE /items/{id}
 Este método elimina el item correspondiente a id enviado como query parameter.
