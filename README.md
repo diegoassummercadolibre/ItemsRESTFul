@@ -19,15 +19,15 @@ Con este metodo se podra obtener un listado de todos los items creados en la bas
 **____________________________________________________________________________________________**
 
 ### GET /items/{id}
-Este método devuelve el item correspondiente a id enviado como query parameter
+Este método devuelve el item correspondiente a id enviado como query parameter.
 
 **Parameter Content Type: application/json**
-
+**____________________________________________________________________________________________**
 
 ### POST /items 
 Este método crea un item en la base de datos, con los datos enviados en el body.
 
-**Ejemplo de body**
+**Body**
 
 *{
   "id": "MLA1527625776195",
@@ -50,5 +50,40 @@ Este método crea un item en la base de datos, con los datos enviados en el body
       "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
   }]
 }*
+
+**Parameter Content Type: application/json**
+**____________________________________________________________________________________________**
+
+### PUT /items/{id}
+Este método actualiza el item correspondiente a id enviado como query parameter.
+
+**Body**
+
+*{
+  "id": "MLA1527625776195",
+  "title": "Item de test - Actualizado",
+  "category_id": "MLA5529",
+  "price": 10,
+  "currency_id": "ARS",
+  "available_quantity": 1,
+  "buying_mode": "buy_it_now",
+  "listing_type_id": "bronze",
+  "condition": "new",
+  "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
+  "video_id": "YOUTUBE_ID_HERE",
+  "warranty": "12 months by Ray Ban",
+  "pictures": [
+  {
+      "source": "http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
+  },
+  {
+      "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
+  }]
+}*
+
+**Parameter Content Type: application/json**
+
+### DELETE /items/{id}
+Este método elimina el item correspondiente a id enviado como query parameter.
 
 **Parameter Content Type: application/json**
