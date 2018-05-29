@@ -24,7 +24,7 @@ Este método devuelve el item correspondiente a id enviado como query parameter.
 **____________________________________________________________________________________________**
 
 ### POST /items 
-Este método crea un item en la base de datos, con los datos enviados en el body.
+Este método crea un item en la base de datos, utilziando los datos enviados en el body.
 
 **Body:**
 
