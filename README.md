@@ -14,19 +14,19 @@ La API posee un único recurso llamado **Items** el cual posee los siguientes m�
 ### GET /items
 Con este método se podra obtener un listado de todos los items creados en la base de datos.
 
-**Parameter Content Type: application/json**
+**Parameter Content Type:** application/json
 **____________________________________________________________________________________________**
 
 ### GET /items/{id}
 Este método devuelve el item correspondiente a id enviado como query parameter.
 
-**Parameter Content Type: application/json**
+**Parameter Content Type:** application/json
 **____________________________________________________________________________________________**
 
 ### POST /items 
 Este método crea un item en la base de datos, con los datos enviados en el body.
 
-**Body**
+**Body:**
 
 *{
   "id": "MLA1527625776195",
@@ -50,22 +50,22 @@ Este método crea un item en la base de datos, con los datos enviados en el body
   }]
 }*
 
-**Parameter Content Type: application/json**
+**Parameter Content Type:** application/json
 **____________________________________________________________________________________________**
 
 ### PUT /items/{id}
 Este método actualiza el item correspondiente a id enviado como query parameter.
 
-**Body**
+**Body:**
 
 *{
 
-  "id": "MLA1527625776195",
+    "id": "MLA1527625776195",
   
-  "title": "Item de test - Actualizado",
-  "category_id": "MLA5529",
-  "price": 10,
-  "currency_id": "ARS",
+    "title": "Item de test - Actualizado",
+    "category_id": "MLA5529",
+    "price": 10,
+    "currency_id": "ARS",
   "available_quantity": 1,
   "buying_mode": "buy_it_now",
   "listing_type_id": "bronze",
@@ -82,10 +82,10 @@ Este método actualiza el item correspondiente a id enviado como query parameter
   }]
 }*
 
-**Parameter Content Type: application/json**
+**Parameter Content Type:** application/json
 **____________________________________________________________________________________________**
 
 ### DELETE /items/{id}
 Este método elimina el item correspondiente a id enviado como query parameter.
 
-**Parameter Content Type: application/json**
+**Parameter Content Type:** application/json
