@@ -17,9 +17,10 @@ La API posee un único recurso llamado **Items** el cual posee los siguientes m�
 Con este método se podra obtener un listado de todos los items creados en la base de datos.
 
 **Parameter Content Type:** application/json
+
 **Responses:** 
 
-***Code   
+***Code***
 200
 
                 {
@@ -71,7 +72,8 @@ Con este método se podra obtener un listado de todos los items creados en la ba
                 }
                                 
                     
-***Code 404
+***Code***
+404
 
                 {
                     "status": "ERROR",
