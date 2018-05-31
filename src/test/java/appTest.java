@@ -4,7 +4,6 @@ import com.jayway.restassured.response.Headers;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ResponseBody;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.Test;
 
