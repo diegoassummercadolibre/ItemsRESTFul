@@ -1,4 +1,4 @@
-package domain;
+package domains;
 
 import java.util.Collection;
 

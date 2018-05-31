@@ -1,12 +1,18 @@
 package controllers;
 
 import com.google.gson.Gson;
+import common.ItemException;
 import common.StandardResponse;
 import common.StatusResponse;
-import domain.Item;
+import domains.Item;
 import services.ItemService;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+
 import java.net.UnknownHostException;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.*;
 import static spark.Spark.delete;
@@ -21,84 +27,96 @@ public class ItemsController {
         final String resource = "/items";
 
         get(resource, (req, res) -> {
-            res.type("application/json");
-            Collection<Item> items = itemService.get();
+            try {
+                res.type("application/json");
 
-            if(items.toArray().length != 0){
+                Collection<Item> items = itemService.get();
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(items)));
-            }
-            else{
+
+            } catch (Exception e) {
                 return new Gson().toJson(
-                        new StandardResponse(StatusResponse.SUCCESS, new Gson()
-                                .toJsonTree("No hay Items en la base de datos")));
+                        new StandardResponse(StatusResponse.ERROR, new Gson()
+                                .toJsonTree(e.getMessage())));
             }
         });
 
         get(resource + "/:id", (req, res) -> {
-            res.type("application/json");
-            Item item = itemService.get(req.params(":id"));
+            try {
+                res.type("application/json");
 
-            if(item != null){
+                Item item = itemService.get(req.params(":id"));
+
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(item)));
-            }
-            else{
+
+            } catch (Exception e) {
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
-                                .toJsonTree("El Item no existe")));
+                                .toJsonTree(e.getMessage())));
             }
         });
 
         post(resource, (req, res) -> {
-            res.type("application/json");
-            Item item = new Gson().fromJson(req.body(), Item.class);
-            String id = itemService.add(item);
+            try {
+                res.type("application/json");
 
-            if(item != null){
+                Item item = new Gson().fromJson(req.body(), Item.class);
+                String id = itemService.add(item);
+
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(id)));
-            }
-            else{
+
+            } catch (Exception e) {
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
-                                .toJsonTree("Hubo un error. El Item no fue creado")));
+                                .toJsonTree(e.getMessage())));
             }
         });
 
         put(resource + "/:id", (req, res) -> {
-            res.type("application/json");
-            Item item = itemService.edit(req.params(":id"), new Gson().fromJson(req.body(), Item.class));
+            try {
+                res.type("application/json");
+                Item item = itemService.edit(req.params(":id"), new Gson().fromJson(req.body(), Item.class));
 
-            if(item != null){
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(item)));
-            }
-            else{
+
+            } catch (Exception e) {
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
-                                .toJsonTree("El Item no existe o error al editar")));
+                                .toJsonTree(e.getMessage())));
             }
         });
 
         delete(resource + "/:id", (req, res) -> {
-            res.type("application/json");
-            String msg = new String();
-
-            if(itemService.delete(req.params(":id"))){
+            try {
+                res.type("application/json");
+                itemService.delete(req.params(":id"));
                 return new Gson().toJson(
-                        new StandardResponse(StatusResponse.SUCCESS, new Gson()
-                                .toJsonTree("El Item fue eliminado")));
-            }
-            else{
+                        new StandardResponse(StatusResponse.SUCCESS));
+
+            } catch (Exception e) {
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
-                                .toJsonTree("El Item no existe")));
+                                .toJsonTree(e.getMessage())));
             }
         });
+
+
+        //VISTAS
+        get("/list", (req, res) -> {
+            Collection<Item> items = itemService.get();
+            Map<String, Object> model = new HashMap<>();
+            model.put("title", "Lista de Items");
+            model.put("items", items);
+
+            // The vm files are located under the resources directory
+            return new ModelAndView(model, "itemList.vm");
+        }, new VelocityTemplateEngine());
     }
 }

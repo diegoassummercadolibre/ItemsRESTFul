@@ -1,14 +1,18 @@
 package services;
 
 import com.google.gson.Gson;
-import domain.Item;
+import common.ItemException;
+import domains.Item;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.engine.DocumentMissingException;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
@@ -26,50 +30,97 @@ public class ItemService {
     private final String _type = "item";
 
     public ItemService() throws UnknownHostException {
-         _client = new PreBuiltTransportClient(Settings.EMPTY)
+        _client = new PreBuiltTransportClient(Settings.EMPTY)
                 .addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
     }
 
-    public String add(Item item) {
-        IndexResponse response = _client.prepareIndex(_index, _type)
-                .setSource(new Gson().toJson(item), XContentType.JSON)
-                .get();
+    public String add(Item item) throws ItemException {
+        String id;
+        try {
+            IndexResponse response = _client.prepareIndex(_index, _type)
+                    .setSource(new Gson().toJson(item), XContentType.JSON)
+                    .get();
 
-        return response.getId();
+            id = response.getId();
+            if (id != null)
+                item.setId(response.getId());
+            else
+                throw new ItemException("Hubo un error. El item no fue creado.");
+
+        } catch (Exception e) {
+            throw e;
+        }
+
+        return id;
     }
 
     public List<Item> get() {
         List<Item> items = new ArrayList<Item>();
-        Item item;
-        SearchResponse searchResponse = _client.prepareSearch().setQuery(matchAllQuery()).get();
-        for (SearchHit hit : searchResponse.getHits()) {
-            item = new Gson().fromJson(hit.getSourceAsString(), Item.class);
-            item.setId(hit.getId());
-            items.add(item);
+        try {
+
+            Item item;
+            SearchResponse searchResponse = _client.prepareSearch().setQuery(matchAllQuery()).get();
+            for (SearchHit hit : searchResponse.getHits()) {
+                item = new Gson().fromJson(hit.getSourceAsString(), Item.class);
+                item.setId(hit.getId());
+                items.add(item);
+            }
+
+        } catch (Exception e) {
+            throw e;
         }
 
         return items;
     }
 
-    public Item get(String id) {
-        GetResponse response = _client.prepareGet(_index,_type, id).get();
-        Item item = new Gson().fromJson(response.getSourceAsString(), Item.class);
-        item.setId(response.getId());
+    public Item get(String id) throws ItemException {
+        Item item;
+        try {
+
+            GetResponse response = _client.prepareGet(_index, _type, id).get();
+            if (!response.isExists())
+                throw new ItemException("Hubo un error. El Item no existe");
+
+            item = new Gson().fromJson(response.getSourceAsString(), Item.class);
+            if (item != null)
+                item.setId(response.getId());
+
+        } catch (Exception e) {
+            throw e;
+        }
 
         return item;
     }
 
-    public Item edit(String id, Item item) {
-        _client.prepareUpdate(_index, _type, id)
-                .setDoc(new Gson().toJson(item), XContentType.JSON)
-                .get();
+    public Item edit(String id, Item item) throws ItemException {
+        Item itemEdited;
+        try {
+            UpdateResponse response = _client.prepareUpdate(_index, _type, id)
+                    .setDoc(new Gson().toJson(item), XContentType.JSON)
+                    .get();
 
-        return get(id);
+            itemEdited = get(id);
+
+        } catch (DocumentMissingException e) {
+            throw new ItemException("Hubo un error. El Item no existe");
+        } catch (Exception e) {
+            throw e;
+        }
+
+        return itemEdited;
     }
 
-    public boolean delete(String id) {
-        _client.prepareDelete(_index, _type, id)
-                .get();
+    public boolean delete(String id) throws ItemException {
+        try {
+            DeleteResponse response = _client.prepareDelete(_index, _type, id)
+                    .get();
+
+            if (!response.getResult().getLowercase().equals("deleted"))
+                throw new ItemException("Hubo un error. El Item no existe");
+
+        } catch (Exception e) {
+            throw e;
+        }
 
         return true;
     }

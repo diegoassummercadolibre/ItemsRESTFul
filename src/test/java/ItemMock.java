@@ -1,4 +1,4 @@
-public class Mocks {
+public class ItemMock {
 
     public static String getJsonItemForAdd(){
         return "{\n" +

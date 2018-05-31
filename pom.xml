@@ -37,13 +37,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.restassured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>2.9.0</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -51,6 +49,12 @@
             <artifactId>transport</artifactId>
             <version>6.2.4</version>
         </dependency>
-        
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-template-velocity</artifactId>
+            <version>2.7.1</version>
+        </dependency>
+
     </dependencies>
 </project>

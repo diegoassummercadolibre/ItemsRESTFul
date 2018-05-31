@@ -15,7 +15,7 @@ import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class appTest {
+public class AppTest {
 
     private final String URI = "http://localhost:8080";
     private final String RESOURCE = "/items";
@@ -26,7 +26,7 @@ public class appTest {
     public void a_validar_add() throws InterruptedException {
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(Mocks.getJsonItemForAdd());
+        httpRequest.body(ItemMock.getJsonItemForAdd());
         Response response = httpRequest.post(RESOURCE);
         ResponseBody body = response.getBody();
         String bodyAsString = body.asString();
@@ -113,7 +113,7 @@ public class appTest {
     public void i_validar_edit()  {
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(Mocks.getJsonItemForEdit());
+        httpRequest.body(ItemMock.getJsonItemForEdit());
         Response response = httpRequest.put(RESOURCE + "/" + _resourceId);
         ResponseBody body = response.getBody();
         String bodyAsString = body.asString();
