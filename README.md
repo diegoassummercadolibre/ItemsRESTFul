@@ -19,8 +19,7 @@ Con este método se podra obtener un listado de todos los items creados en la ba
 **Parameter Content Type:** application/json
 **Responses:** 
 
-Code            Ejemplo
-------------------------------------------------------------------------------------------------------------------------------
+***Code   
 200
 
                 {
@@ -69,6 +68,14 @@ Code            Ejemplo
                           }]
                         }
                     ]
+                }
+                                
+                    
+***Code 404
+
+                {
+                    "status": "ERROR",
+                    "data": "No se encontró el Item"
                 }
 **____________________________________________________________________________________________**
 
