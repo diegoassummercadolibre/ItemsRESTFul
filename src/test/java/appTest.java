@@ -26,7 +26,7 @@ public class appTest {
     public void a_validar_add() throws InterruptedException {
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(getJsonItemForAdd());
+        httpRequest.body(Mocks.getJsonItemForAdd());
         Response response = httpRequest.post(RESOURCE);
         ResponseBody body = response.getBody();
         String bodyAsString = body.asString();
@@ -113,7 +113,7 @@ public class appTest {
     public void i_validar_edit()  {
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(getJsonItemForEdit());
+        httpRequest.body(Mocks.getJsonItemForEdit());
         Response response = httpRequest.put(RESOURCE + "/" + _resourceId);
         ResponseBody body = response.getBody();
         String bodyAsString = body.asString();
@@ -132,45 +132,6 @@ public class appTest {
         Assert.assertEquals(bodyAsString.contains(SUCCESS_MESSAGE), true);
     }
 
-    private String getJsonItemForAdd(){
-        return "{\n" +
-                "  \"title\":\"Item de test - No Ofertar\",\n" +
-                "  \"category_id\":\"MLA5529\",\n" +
-                "  \"price\":10,\n" +
-                "  \"currency_id\":\"ARS\",\n" +
-                "  \"available_quantity\":1,\n" +
-                "  \"buying_mode\":\"buy_it_now\",\n" +
-                "  \"listing_type_id\":\"bronze\",\n" +
-                "  \"condition\":\"new\",\n" +
-                "  \"description\": \"Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box\",\n" +
-                "  \"video_id\": \"YOUTUBE_ID_HERE\",\n" +
-                "  \"warranty\": \"12 months by Ray Ban\",\n" +
-                "  \"pictures\":[\n" +
-                "    {\"source\":\"http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg\"},\n" +
-                "    {\"source\":\"http://en.wikipedia.org/wiki/File:Teashades.gif\"}\n" +
-                "  ]\n" +
-                "}";
-    }
-
-    private String getJsonItemForEdit(){
-        return "{\n" +
-                "  \"title\":\"Item de test - Modificado\",\n" +
-                "  \"category_id\":\"MLA5529\",\n" +
-                "  \"price\":10,\n" +
-                "  \"currency_id\":\"ARS\",\n" +
-                "  \"available_quantity\":1,\n" +
-                "  \"buying_mode\":\"buy_it_now\",\n" +
-                "  \"listing_type_id\":\"bronze\",\n" +
-                "  \"condition\":\"new\",\n" +
-                "  \"description\": \"Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box\",\n" +
-                "  \"video_id\": \"YOUTUBE_ID_HERE\",\n" +
-                "  \"warranty\": \"12 months by Ray Ban\",\n" +
-                "  \"pictures\":[\n" +
-                "    {\"source\":\"http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg\"},\n" +
-                "    {\"source\":\"http://en.wikipedia.org/wiki/File:Teashades.gif\"}\n" +
-                "  ]\n" +
-                "}";
-    }
 }
 
 

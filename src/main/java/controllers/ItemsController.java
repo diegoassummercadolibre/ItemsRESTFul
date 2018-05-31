@@ -5,8 +5,6 @@ import common.StandardResponse;
 import common.StatusResponse;
 import domain.Item;
 import services.ItemService;
-import org.elasticsearch.action.get.MultiGetRequest;
-
 import java.net.UnknownHostException;
 import java.util.Collection;
 
@@ -33,7 +31,7 @@ public class ItemsController {
             }
             else{
                 return new Gson().toJson(
-                        new StandardResponse(StatusResponse.ERROR, new Gson()
+                        new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree("No hay Items en la base de datos")));
             }
         });
