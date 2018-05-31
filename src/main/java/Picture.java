@@ -18,7 +18,4 @@ public class Picture {
         this.source = source;
     }
 
-    public String toString(){
-        return "\"" + getSource() + "\"";
-    }
 }
