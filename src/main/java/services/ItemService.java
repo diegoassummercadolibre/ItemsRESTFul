@@ -1,4 +1,7 @@
+package services;
+
 import com.google.gson.Gson;
+import domain.Item;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
@@ -36,16 +39,16 @@ public class ItemService {
     }
 
     public List<Item> get() {
-        List<Item> results = new ArrayList<Item>();
+        List<Item> items = new ArrayList<Item>();
         Item item;
         SearchResponse searchResponse = _client.prepareSearch().setQuery(matchAllQuery()).get();
         for (SearchHit hit : searchResponse.getHits()) {
             item = new Gson().fromJson(hit.getSourceAsString(), Item.class);
             item.setId(hit.getId());
-            results.add(item);
+            items.add(item);
         }
 
-        return results;
+        return items;
     }
 
     public Item get(String id) {

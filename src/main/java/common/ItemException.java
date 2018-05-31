@@ -1,3 +1,5 @@
+package common;
+
 public class ItemException extends Exception {
 
     public ItemException() {
