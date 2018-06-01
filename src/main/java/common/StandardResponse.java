@@ -16,7 +16,7 @@ public class StandardResponse {
 
     public StandardResponse(StatusResponse status, JsonElement data) {
         this.status = status;
-        this.data = data;;
+        this.data = data;
     }
 
     public static String getResponse(StatusResponse status, Object data) {

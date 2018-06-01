@@ -107,7 +107,6 @@ public class ItemsController {
             model.put("title", "Lista de Items");
             model.put("items", items);
 
-            // The vm files are located under the resources directory
             return new ModelAndView(model, "itemList.vm");
         }, new VelocityTemplateEngine());
     }
