@@ -13,14 +13,14 @@ public class StandardResponse {
         this.status = status;
     }
 
-    public StandardResponse(StatusResponse status, String message) {
+
+    public StandardResponse(StatusResponse status, JsonElement data) {
         this.status = status;
-        this.message = message;
+        this.data = data;;
     }
 
-    public StandardResponse(StatusResponse status, Object data) {
-        this.status = status;
-        this.data = new Gson().toJsonTree(data);;
+    public static String getResponse(StatusResponse status, Object data) {
+        return new Gson().toJson(new StandardResponse(status, new Gson().toJsonTree(data)));
     }
 
     public StatusResponse getStatus() {

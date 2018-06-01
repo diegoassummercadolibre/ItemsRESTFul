@@ -1,7 +1,6 @@
 package controllers;
 
 import com.google.gson.Gson;
-import common.ApiResponse;
 import common.ItemException;
 import common.StandardResponse;
 import common.StatusResponse;
@@ -32,10 +31,10 @@ public class ItemsController {
             try {
                 res.type("application/json");
                 Collection<Item> items = itemService.getAll();
-                return ApiResponse.getResponse(StatusResponse.SUCCESS, items);
+                return StandardResponse.getResponse(StatusResponse.SUCCESS, items);
             } catch (Exception e) {
                 res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             }
         });
 
@@ -44,14 +43,14 @@ public class ItemsController {
                 res.type("application/json");
                 Item item = itemService.get(req.params(":id"));
 
-                return ApiResponse.getResponse(StatusResponse.SUCCESS, item);
+                return StandardResponse.getResponse(StatusResponse.SUCCESS, item);
 
             } catch (ItemException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
                 res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             }
         });
 
@@ -61,11 +60,11 @@ public class ItemsController {
                 Item item = new Gson().fromJson(req.body(), Item.class);
                 String id = itemService.add(item);
 
-                return ApiResponse.getResponse(StatusResponse.SUCCESS, id);
+                return StandardResponse.getResponse(StatusResponse.SUCCESS, id);
 
             } catch (Exception e) {
                 res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             }
         });
 
@@ -74,14 +73,14 @@ public class ItemsController {
                 res.type("application/json");
                 Item item = itemService.edit(req.params(":id"), new Gson().fromJson(req.body(), Item.class));
 
-                return ApiResponse.getResponse(StatusResponse.SUCCESS, item);
+                return StandardResponse.getResponse(StatusResponse.SUCCESS, item);
 
             } catch (ItemException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
                 res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             }
         });
 
@@ -89,14 +88,14 @@ public class ItemsController {
             try {
                 res.type("application/json");
                 boolean response = itemService.delete(req.params(":id"));
-                return ApiResponse.getResponse(StatusResponse.SUCCESS, response);
+                return StandardResponse.getResponse(StatusResponse.SUCCESS, response);
 
             } catch (ItemException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
                 res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                return ApiResponse.getResponse(StatusResponse.ERROR, e.getMessage());
+                return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             }
         });
 
