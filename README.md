@@ -158,7 +158,7 @@ Creea un item en la base de datos, utilizando los datos enviados en el body. Dev
 
     {
         "status": "SUCCESS",
-        "data": "J_a5uGMBRfE6d63VD-87"
+        "data": "Dfbbt2MBRfE6d63V3e_b"
     }
 **____________________________________________________________________________________________**
 
