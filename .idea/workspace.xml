@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59f3d9f6-881d-4aa8-b275-76cc025af5e5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/itemList.vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VelocityTemplateEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/VelocityTemplateEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ItemsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domains/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domains/Picture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Mocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ItemMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/appTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VelocityTemplateEngine.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/ItemsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/ItemsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/Picture.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ItemService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ItemService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ItemService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/ItemService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="1055">
+              <caret line="118" column="63" selection-start-line="118" selection-start-column="63" selection-end-line="118" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1702#1708#0" expanded="true" />
@@ -49,8 +44,8 @@
       <file leaf-file-name="ItemsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ItemsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="1239">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,46 +53,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestWrapper.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/http/matching/RequestWrapper.class">
+      <file leaf-file-name="AppMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/AppMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="150">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding>
-                <element signature="e#1961#1962#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Request.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/Request.class">
+      <file leaf-file-name="VelocityTemplateEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/views/VelocityTemplateEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponseWrapper.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/http/matching/ResponseWrapper.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="15">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
-                <element signature="e#1735#1736#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Response.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/Response.class">
+      <file leaf-file-name="ItemException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/common/ItemException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="120">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
-                <element signature="e#789#790#0" expanded="true" />
+                <element signature="e#159#160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/AppTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,8 +160,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/home.vm" />
         <option value="$PROJECT_DIR$/src/main/java/frontEnd/ItemVelocityView.java" />
         <option value="$PROJECT_DIR$/src/main/resources/itemList.vm" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ItemsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/ItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/ItemsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/AppMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/Appç.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/App.java" />
+        <option value="$PROJECT_DIR$/src/test/java/AppTest.java" />
       </list>
     </option>
   </component>
@@ -238,15 +240,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ItemsRESTFul" type="b2602c69:ProjectViewProjectNode" />
               <item name="ItemsRESTFul" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ItemsRESTFul" type="b2602c69:ProjectViewProjectNode" />
@@ -289,7 +290,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ItemsController (1)">
+  <component name="RunManager">
+    <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.AppMain" />
+      <module name="ItemsRESTFul" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="ItemsController (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controllers.ItemsController" />
       <module name="ItemsRESTFul" />
@@ -343,23 +355,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="AppTest.validar_status_code_200" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ItemsRESTFul" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppTest" />
-      <option name="METHOD_NAME" value="validar_status_code_200" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -400,18 +395,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.ItemsController" />
-      <item itemvalue="JUnit.AppTest.validar_status_code_200" />
       <item itemvalue="JUnit.AppTest" />
       <item itemvalue="JUnit.AppTest.validar_body" />
       <item itemvalue="Application.ItemsController (1)" />
+      <item itemvalue="Application.AppMain" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ItemsController (1)" />
         <item itemvalue="JUnit.AppTest" />
+        <item itemvalue="Application.AppMain" />
+        <item itemvalue="Application.ItemsController (1)" />
         <item itemvalue="Application.ItemsController" />
         <item itemvalue="JUnit.AppTest.validar_body" />
-        <item itemvalue="JUnit.AppTest.validar_status_code_200" />
       </list>
     </recent_temporary>
   </component>
@@ -429,17 +424,11 @@
       <workItem from="1527509826688" duration="44413000" />
       <workItem from="1527704521577" duration="12718000" />
       <workItem from="1527723510238" duration="6466000" />
-      <workItem from="1527765686476" duration="18508000" />
+      <workItem from="1527765686476" duration="23024000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="appTest - 2018.05.31 at 19h 12m 02s.xml">
-      <configuration name="appTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="appTest - 2018.05.31 at 19h 14m 05s.xml">
-      <configuration name="appTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AppTest - 2018.05.31 at 19h 32m 12s.xml">
       <configuration name="AppTest" configurationId="JUnit" />
     </history-entry>
@@ -464,13 +453,18 @@
     <history-entry file="AppTest - 2018.05.31 at 19h 57m 47s.xml">
       <configuration name="AppTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AppTest - 2018.05.31 at 20h 07m 04s.xml">
+      <configuration name="AppTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AppTest - 2018.05.31 at 21h 44m 15s.xml">
+      <configuration name="AppTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86038000" />
+    <option name="totallyTimeSpent" value="90554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="805" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -482,19 +476,19 @@
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297568" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32909605" />
       <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.3297568" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49882352" weight="0.24964234" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997175" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997175" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="310" height="605" id="Documentation" order="9" sideWeight="0.5011765" side_tool="true" weight="0.24964234" />
@@ -512,7 +506,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="120" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/ItemsController.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="123" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -520,7 +522,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/FreeMethods.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Shipping.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/State.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Rule.java" />
@@ -716,16 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/AppTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/itemList.vm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -733,30 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VelocityTemplateEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/domains/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="18" column="40" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/ItemException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#159#160#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -772,7 +743,7 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/http/matching/ResponseWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="765">
           <caret line="81" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="e#1735#1736#0" expanded="true" />
@@ -782,14 +753,14 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/Request.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
+        <state relative-caret-position="690">
           <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.5.4/spark-core-2.5.4.jar!/spark/http/matching/RequestWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="-415">
           <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
             <element signature="e#1961#1962#0" expanded="true" />
@@ -797,10 +768,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ItemsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/ItemException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="120">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#159#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/VelocityTemplateEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -809,11 +790,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/ItemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="1055">
+          <caret line="118" column="63" selection-start-line="118" selection-start-column="63" selection-end-line="118" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1702#1708#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ItemsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1239">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/AppMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,7 +846,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -883,7 +894,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.google.code.gson:gson:2.8.0</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>

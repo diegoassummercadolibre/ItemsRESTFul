@@ -1,3 +1,5 @@
+package views;
+
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;

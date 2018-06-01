@@ -45,7 +45,7 @@ public class ItemService {
             if (id != null)
                 item.setId(response.getId());
             else
-                throw new ItemException("Hubo un error. El item no fue creado.");
+                throw new ItemException("El item no fue creado.");
 
         } catch (Exception e) {
             throw e;
@@ -54,7 +54,7 @@ public class ItemService {
         return id;
     }
 
-    public List<Item> get() {
+    public List<Item> getAll() {
         List<Item> items = new ArrayList<Item>();
         try {
 
@@ -79,7 +79,7 @@ public class ItemService {
 
             GetResponse response = _client.prepareGet(_index, _type, id).get();
             if (!response.isExists())
-                throw new ItemException("Hubo un error. El Item no existe");
+                throw new ItemException("No se encontró el Item");
 
             item = new Gson().fromJson(response.getSourceAsString(), Item.class);
             if (item != null)
@@ -102,7 +102,7 @@ public class ItemService {
             itemEdited = get(id);
 
         } catch (DocumentMissingException e) {
-            throw new ItemException("Hubo un error. El Item no existe");
+            throw new ItemException("No se encontró el Item");
         } catch (Exception e) {
             throw e;
         }
@@ -116,7 +116,7 @@ public class ItemService {
                     .get();
 
             if (!response.getResult().getLowercase().equals("deleted"))
-                throw new ItemException("Hubo un error. El Item no existe");
+                throw new ItemException("No se encontró el Item");
 
         } catch (Exception e) {
             throw e;

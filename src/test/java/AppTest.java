@@ -19,7 +19,7 @@ public class AppTest {
 
     private final String URI = "http://localhost:8080";
     private final String RESOURCE = "/items";
-    private final String SUCCESS_MESSAGE ="\"status\":\"SUCCESS\"";
+    private final String SUCCESS_MESSAGE = "\"status\":\"SUCCESS\"";
     private static String _resourceId;
 
     @Test
@@ -34,14 +34,14 @@ public class AppTest {
 
         Matcher resourceId = Pattern.compile("\"data\":\"(.*)\"}").matcher(bodyAsString);
         resourceId.find();
-        _resourceId =  resourceId.group(1);
-
-        //Este timer es para asegurar que la api devuelva el resourceId necesario para los demas tests
-        TimeUnit.SECONDS.sleep(1);
+        _resourceId = resourceId.group(1);
     }
 
     @Test
-    public void b_validar_status_code_200(){
+    public void b_validar_status_code_200() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
@@ -50,7 +50,10 @@ public class AppTest {
     }
 
     @Test
-    public void c_validar_status_line(){
+    public void c_validar_status_line() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
@@ -59,19 +62,25 @@ public class AppTest {
     }
 
     @Test
-    public void d_imprimir_headers(){
+    public void d_imprimir_headers() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         Headers allHeaders = response.headers();
-        for (Header header: allHeaders){
+        for (Header header : allHeaders) {
             System.out.println("Key: " + header.getName()
-            + " Value: " + header.getValue());
+                    + " Value: " + header.getValue());
         }
     }
 
     @Test
-    public void e_validar_headers(){
+    public void e_validar_headers() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
@@ -80,7 +89,10 @@ public class AppTest {
     }
 
     @Test
-    public void f_validar_body(){
+    public void f_validar_body() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
@@ -90,7 +102,10 @@ public class AppTest {
     }
 
     @Test
-    public void g_validar_get()  {
+    public void g_validar_get() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
@@ -100,7 +115,10 @@ public class AppTest {
     }
 
     @Test
-    public void h_validar_getAll()  {
+    public void h_validar_getAll() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE);
@@ -110,7 +128,10 @@ public class AppTest {
     }
 
     @Test
-    public void i_validar_edit()  {
+    public void i_validar_edit() throws InterruptedException {
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.body(ItemMock.getJsonItemForEdit());
@@ -122,8 +143,9 @@ public class AppTest {
 
     @Test
     public void w_validar_delete() throws InterruptedException {
-        //Este timer es para asegurar que los demas test ya fueron finalizados
-        TimeUnit.SECONDS.sleep(2);
+        while (_resourceId == null)
+            TimeUnit.MICROSECONDS.sleep(500);
+
         RestAssured.baseURI = URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.delete(RESOURCE + "/" + _resourceId);

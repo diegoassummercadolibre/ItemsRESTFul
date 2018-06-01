@@ -5,6 +5,7 @@ import common.ItemException;
 import common.StandardResponse;
 import common.StatusResponse;
 import domains.Item;
+import org.apache.http.HttpStatus;
 import services.ItemService;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -19,7 +20,7 @@ import static spark.Spark.delete;
 
 public class ItemsController {
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void init() throws UnknownHostException {
 
         port(8080);
 
@@ -29,13 +30,12 @@ public class ItemsController {
         get(resource, (req, res) -> {
             try {
                 res.type("application/json");
-
-                Collection<Item> items = itemService.get();
+                Collection<Item> items = itemService.getAll();
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(items)));
-
             } catch (Exception e) {
+                res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
                                 .toJsonTree(e.getMessage())));
@@ -45,14 +45,19 @@ public class ItemsController {
         get(resource + "/:id", (req, res) -> {
             try {
                 res.type("application/json");
-
                 Item item = itemService.get(req.params(":id"));
 
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(item)));
 
+            } catch (ItemException e) {
+                res.status(HttpStatus.SC_NOT_FOUND);
+                return new Gson().toJson(
+                        new StandardResponse(StatusResponse.ERROR, new Gson()
+                                .toJsonTree(e.getMessage())));
             } catch (Exception e) {
+                res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
                                 .toJsonTree(e.getMessage())));
@@ -62,7 +67,6 @@ public class ItemsController {
         post(resource, (req, res) -> {
             try {
                 res.type("application/json");
-
                 Item item = new Gson().fromJson(req.body(), Item.class);
                 String id = itemService.add(item);
 
@@ -71,6 +75,7 @@ public class ItemsController {
                                 .toJsonTree(id)));
 
             } catch (Exception e) {
+                res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
                                 .toJsonTree(e.getMessage())));
@@ -86,7 +91,13 @@ public class ItemsController {
                         new StandardResponse(StatusResponse.SUCCESS, new Gson()
                                 .toJsonTree(item)));
 
+            } catch (ItemException e) {
+                res.status(HttpStatus.SC_NOT_FOUND);
+                return new Gson().toJson(
+                        new StandardResponse(StatusResponse.ERROR, new Gson()
+                                .toJsonTree(e.getMessage())));
             } catch (Exception e) {
+                res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
                                 .toJsonTree(e.getMessage())));
@@ -100,7 +111,13 @@ public class ItemsController {
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.SUCCESS));
 
+            } catch (ItemException e) {
+                res.status(HttpStatus.SC_NOT_FOUND);
+                return new Gson().toJson(
+                        new StandardResponse(StatusResponse.ERROR, new Gson()
+                                .toJsonTree(e.getMessage())));
             } catch (Exception e) {
+                res.status(HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 return new Gson().toJson(
                         new StandardResponse(StatusResponse.ERROR, new Gson()
                                 .toJsonTree(e.getMessage())));
@@ -109,8 +126,8 @@ public class ItemsController {
 
 
         //VISTAS
-        get("/list", (req, res) -> {
-            Collection<Item> items = itemService.get();
+        get(resource + "/view/list", (req, res) -> {
+            Collection<Item> items = itemService.getAll();
             Map<String, Object> model = new HashMap<>();
             model.put("title", "Lista de Items");
             model.put("items", items);
