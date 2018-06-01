@@ -1,7 +1,7 @@
 package controllers;
 
 import com.google.gson.Gson;
-import common.ItemException;
+import common.NotFoundException;
 import common.StandardResponse;
 import common.StatusResponse;
 import domains.Item;
@@ -45,7 +45,7 @@ public class ItemsController {
 
                 return StandardResponse.getResponse(StatusResponse.SUCCESS, item);
 
-            } catch (ItemException e) {
+            } catch (NotFoundException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
                 return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
@@ -75,7 +75,7 @@ public class ItemsController {
 
                 return StandardResponse.getResponse(StatusResponse.SUCCESS, item);
 
-            } catch (ItemException e) {
+            } catch (NotFoundException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
                 return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
@@ -90,7 +90,7 @@ public class ItemsController {
                 boolean response = itemService.delete(req.params(":id"));
                 return StandardResponse.getResponse(StatusResponse.SUCCESS, response);
 
-            } catch (ItemException e) {
+            } catch (NotFoundException e) {
                 res.status(HttpStatus.SC_NOT_FOUND);
                 return StandardResponse.getResponse(StatusResponse.ERROR, e.getMessage());
             } catch (Exception e) {
