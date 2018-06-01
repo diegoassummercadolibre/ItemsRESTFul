@@ -71,9 +71,7 @@ Obtiene un listado de todos los items creados en la base de datos.
     }
                                 
                     
-**Code: 404***
-
-
+> Code: 404
 
     {
         "status": "ERROR",
@@ -88,9 +86,7 @@ Devuelve el item correspondiente a id enviado como query parameter.
 
 **Responses:** 
 
-***Code***
-
-200
+> Code: 200
 
     {
         "status": "SUCCESS",
@@ -119,9 +115,7 @@ Devuelve el item correspondiente a id enviado como query parameter.
     }
                                 
                     
-***Code***
-
-404
+> Code: 404
 
     {
         "status": "ERROR",
@@ -160,9 +154,7 @@ Creea un item en la base de datos, utilizando los datos enviados en el body. Dev
 
 **Responses:** 
 
-***Code***
-
-200
+> Code: 200
 
     {
         "status": "SUCCESS",
@@ -201,9 +193,7 @@ Actualiza el item correspondiente a id enviado como query parameter. Devuelve el
 
 **Responses:** 
 
-***Code***
-
-200
+> Code: 200
 
     {
         "status": "SUCCESS",
@@ -232,9 +222,7 @@ Actualiza el item correspondiente a id enviado como query parameter. Devuelve el
     }
                                 
                     
-***Code***
-
-404
+> Code: 404
 
     {
         "status": "ERROR",
@@ -249,9 +237,7 @@ Este método elimina el item correspondiente a id enviado como query parameter.
 
 **Responses:** 
 
-***Code***
-
-404
+> Code: 404
 
     {
         "status": "ERROR",
