@@ -20,7 +20,7 @@ Obtiene un listado de todos los items creados en la base de datos.
 
 **Responses:** 
 
-***Code: 200**
+> Code: 200
 
     {
         "status": "SUCCESS",
@@ -71,7 +71,7 @@ Obtiene un listado de todos los items creados en la base de datos.
     }
                                 
                     
-***Code: 404***
+**Code: 404***
 
 
 
