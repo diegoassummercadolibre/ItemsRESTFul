@@ -1,5 +1,6 @@
 package common;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
 public class StandardResponse {
@@ -17,9 +18,9 @@ public class StandardResponse {
         this.message = message;
     }
 
-    public StandardResponse(StatusResponse status, JsonElement jsonElement) {
+    public StandardResponse(StatusResponse status, Object data) {
         this.status = status;
-        this.data = jsonElement;
+        this.data = new Gson().toJsonTree(data);;
     }
 
     public StatusResponse getStatus() {
