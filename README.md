@@ -20,8 +20,8 @@ Obtiene un listado de todos los items creados en la base de datos.
 
 **Responses:** 
 
-***Code***              Example
------------------------------------------
+**Code         Example**
+________________________________
 200
 
     {
