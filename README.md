@@ -237,6 +237,13 @@ Este método elimina el item correspondiente a id enviado como query parameter.
 
 **Responses:** 
 
+> Code: 200
+
+    {
+        "status": "SUCCESS",
+        "data": true
+    }
+
 > Code: 404
 
     {
