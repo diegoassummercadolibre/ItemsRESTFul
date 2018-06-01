@@ -21,64 +21,66 @@ Con este método se podra obtener un listado de todos los items creados en la ba
 **Responses:** 
 
 ***Code***
+
 200
 
-                {
-                    "status": "SUCCESS",
-                    "data": [
-                        {
-                          "id": "Dfbbt2MBRfE6d63V3e_b",
-                          "title": "Item de test 1 - No Ofertar",
-                          "category_id": "MLA5529",
-                          "price": 10,
-                          "currency_id": "ARS",
-                          "available_quantity": 1,
-                          "buying_mode": "buy_it_now",
-                          "listing_type_id": "bronze",
-                          "condition": "new",
-                          "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
-                          "video_id": "YOUTUBE_ID_HERE",
-                          "warranty": "12 months by Ray Ban",
-                          "pictures": [
-                          {
-                              "source": "http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
-                          },
-                          {
-                              "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
-                          }]
-                        },
-                        {
-                          "id": "Efbbt2MBRfE6d63V6e8-",
-                          "title": "Item de test 2 - No Ofertar",
-                          "category_id": "MLA5529",
-                          "price": 10,
-                          "currency_id": "ARS",
-                          "available_quantity": 1,
-                          "buying_mode": "buy_it_now",
-                          "listing_type_id": "bronze",
-                          "condition": "new",
-                          "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
-                          "video_id": "YOUTUBE_ID_HERE",
-                          "warranty": "12 months by Ray Ban",
-                          "pictures": [
-                          {
-                              "source": "http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
-                          },
-                          {
-                              "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
-                          }]
-                        }
-                    ]
-                }
+    {
+        "status": "SUCCESS",
+        "data": [
+            {
+              "id": "Dfbbt2MBRfE6d63V3e_b",
+              "title": "Item de test 1 - No Ofertar",
+              "category_id": "MLA5529",
+              "price": 10,
+              "currency_id": "ARS",
+              "available_quantity": 1,
+              "buying_mode": "buy_it_now",
+              "listing_type_id": "bronze",
+              "condition": "new",
+              "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
+              "video_id": "YOUTUBE_ID_HERE",
+              "warranty": "12 months by Ray Ban",
+              "pictures": [
+              {
+                  "source": "http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
+              },
+              {
+                  "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
+              }]
+            },
+            {
+              "id": "Efbbt2MBRfE6d63V6e8-",
+              "title": "Item de test 2 - No Ofertar",
+              "category_id": "MLA5529",
+              "price": 10,
+              "currency_id": "ARS",
+              "available_quantity": 1,
+              "buying_mode": "buy_it_now",
+              "listing_type_id": "bronze",
+              "condition": "new",
+              "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
+              "video_id": "YOUTUBE_ID_HERE",
+              "warranty": "12 months by Ray Ban",
+              "pictures": [
+              {
+                  "source": "http://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
+              },
+              {
+                  "source": "http://en.wikipedia.org/wiki/File:Teashades.gif"
+              }]
+            }
+        ]
+    }
                                 
                     
 ***Code***
+
 404
 
-                {
-                    "status": "ERROR",
-                    "data": "No se encontró el Item"
-                }
+    {
+        "status": "ERROR",
+        "data": "No se encontró el Item"
+    }
 **____________________________________________________________________________________________**
 
 ### GET /items/{id}
