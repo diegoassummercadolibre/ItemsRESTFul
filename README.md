@@ -6,7 +6,7 @@ Esta API esta desarrollada en **Java 8** y utiliza una base de datos no relacion
 
 ## Instrucciones de uso
 1. Instalar y ejecutar ElasticSearch. Puede descargarlo desde [aquí](https://www.elastic.co/downloads/elasticsearch).
-2. Abrir y ejecutar el proyecto Java utlizando ItemsController.main como metodo de arranque. El mismo utilizará el puerto 8080 (http://localhost:8080).
+2. Abrir y ejecutar el proyecto Java utlizando App.main() como metodo de arranque. El mismo utilizará el puerto 8080 (http://localhost:8080).
 3. Ejecutar el archivo AppTest.java para correr los tests.
 4. Para ver un listado de los items ingrese a http://localhost:8080/view/items/list.
 
