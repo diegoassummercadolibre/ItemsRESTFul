@@ -75,7 +75,7 @@ Obtiene un listado de todos los items creados en la base de datos.
 
     {
         "status": "ERROR",
-        "data": "No se encontró el Item"
+        "data": "No se encontró el recurso"
     }
 **____________________________________________________________________________________________**
 
@@ -119,7 +119,7 @@ Devuelve el item correspondiente a id enviado como query parameter.
 
     {
         "status": "ERROR",
-        "data": "No se encontró el Item"
+        "data": "No se encontró el recurso"
     }
 **____________________________________________________________________________________________**
 
@@ -158,7 +158,7 @@ Creea un item en la base de datos, utilizando los datos enviados en el body. Dev
 
     {
         "status": "SUCCESS",
-        "data": "J_a5uGMBRfE6d63VD-87"
+        "data": "Dfbbt2MBRfE6d63V3e_b"
     }
 **____________________________________________________________________________________________**
 
@@ -226,7 +226,7 @@ Actualiza el item correspondiente a id enviado como query parameter. Devuelve el
 
     {
         "status": "ERROR",
-        "data": "No se encontró el Item"
+        "data": "No se encontró el recurso"
     }
 **____________________________________________________________________________________________**
 
@@ -248,5 +248,5 @@ Este método elimina el item correspondiente a id enviado como query parameter.
 
     {
         "status": "ERROR",
-        "data": "No se encontró el Item"
+        "data": "No se encontró el recurso"
     }
