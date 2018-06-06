@@ -6,8 +6,12 @@ import java.net.UnknownHostException;
 
 public class AppMain {
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) {
 
-        ItemsController.init();
+        try {
+            ItemsController.init();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,0 +1,9 @@
+views/VelocityTemplateEngine.class
+controllers/ItemsController.class
+app/AppMain.class
+domains/Picture.class
+common/StandardResponse.class
+common/StatusResponse.class
+domains/Item.class
+common/NotFoundException.class
+services/ItemService.class

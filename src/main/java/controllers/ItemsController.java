@@ -25,9 +25,9 @@ public class ItemsController {
         port(8080);
 
         final ItemService itemService = new ItemService();
-        final String resource = "/items";
+        final String RESOURCE = "/items";
 
-        get(resource, (req, res) -> {
+        get(RESOURCE, (req, res) -> {
             try {
                 res.type("application/json");
                 Collection<Item> items = itemService.getAll();
@@ -38,7 +38,7 @@ public class ItemsController {
             }
         });
 
-        get(resource + "/:id", (req, res) -> {
+        get(RESOURCE + "/:id", (req, res) -> {
             try {
                 res.type("application/json");
                 Item item = itemService.get(req.params(":id"));
@@ -54,7 +54,7 @@ public class ItemsController {
             }
         });
 
-        post(resource, (req, res) -> {
+        post(RESOURCE, (req, res) -> {
             try {
                 res.type("application/json");
                 Item item = new Gson().fromJson(req.body(), Item.class);
@@ -68,7 +68,7 @@ public class ItemsController {
             }
         });
 
-        put(resource + "/:id", (req, res) -> {
+        put(RESOURCE + "/:id", (req, res) -> {
             try {
                 res.type("application/json");
                 Item item = itemService.edit(req.params(":id"), new Gson().fromJson(req.body(), Item.class));
@@ -84,7 +84,7 @@ public class ItemsController {
             }
         });
 
-        delete(resource + "/:id", (req, res) -> {
+        delete(RESOURCE + "/:id", (req, res) -> {
             try {
                 res.type("application/json");
                 boolean response = itemService.delete(req.params(":id"));
@@ -101,7 +101,7 @@ public class ItemsController {
 
 
         //VISTAS
-        get(resource + "/view/list", (req, res) -> {
+        get(RESOURCE + "/view/list", (req, res) -> {
             Collection<Item> items = itemService.getAll();
             Map<String, Object> model = new HashMap<>();
             model.put("title", "Lista de Items");

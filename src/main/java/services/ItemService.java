@@ -26,8 +26,8 @@ import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
 public class ItemService {
 
     private TransportClient _client;
-    private final String _index = "test";
-    private final String _type = "item";
+    private final String INDEX = "test";
+    private final String TYPE = "item";
 
     public ItemService() throws UnknownHostException {
         _client = new PreBuiltTransportClient(Settings.EMPTY)
@@ -36,7 +36,7 @@ public class ItemService {
 
     public String add(Item item) {
 
-         IndexResponse response = _client.prepareIndex(_index, _type)
+         IndexResponse response = _client.prepareIndex(INDEX, TYPE)
                 .setSource(new Gson().toJson(item), XContentType.JSON)
                 .get();
 
@@ -60,7 +60,7 @@ public class ItemService {
 
     public Item get(String id) throws NotFoundException {
         Item item;
-        GetResponse response = _client.prepareGet(_index, _type, id).get();
+        GetResponse response = _client.prepareGet(INDEX, TYPE, id).get();
         if (!response.isExists())
             throw new NotFoundException();
 
@@ -74,7 +74,7 @@ public class ItemService {
     public Item edit(String id, Item item) throws NotFoundException {
         Item itemEdited;
         try {
-            UpdateResponse response = _client.prepareUpdate(_index, _type, id)
+            UpdateResponse response = _client.prepareUpdate(INDEX, TYPE, id)
                     .setDoc(new Gson().toJson(item), XContentType.JSON)
                     .get();
 
@@ -88,7 +88,7 @@ public class ItemService {
     }
 
     public boolean delete(String id) throws NotFoundException {
-        DeleteResponse response = _client.prepareDelete(_index, _type, id)
+        DeleteResponse response = _client.prepareDelete(INDEX, TYPE, id)
                 .get();
 
         if (!response.getResult().getLowercase().equals("deleted"))

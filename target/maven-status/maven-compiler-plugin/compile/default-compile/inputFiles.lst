@@ -1,7 +1,9 @@
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/ItemService.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/StandardResponse.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/Picture.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/ItemsController.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/ItemException.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/Item.java
-/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/StatusResponse.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/common/StandardResponse.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/common/StatusResponse.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/views/VelocityTemplateEngine.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/controllers/ItemsController.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/domains/Picture.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/domains/Item.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/app/AppMain.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/common/NotFoundException.java
+/Users/dassum/IdeaProjects/ItemsRESTFul/src/main/java/services/ItemService.java

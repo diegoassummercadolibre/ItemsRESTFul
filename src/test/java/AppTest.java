@@ -17,14 +17,14 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AppTest {
 
-    private final String URI = "http://localhost:8080";
+    private final String RESOURCE_API_URI = "http://localhost:8080";
     private final String RESOURCE = "/items";
     private final String SUCCESS_MESSAGE = "\"status\":\"SUCCESS\"";
     private static String _resourceId;
 
     @Test
-    public void a_validar_add() throws InterruptedException {
-        RestAssured.baseURI = URI;
+    public void a_validar_add() {
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.body(ItemMock.getJsonItemForAdd());
         Response response = httpRequest.post(RESOURCE);
@@ -42,7 +42,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         int statusCode = response.getStatusCode();
@@ -54,7 +54,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         String statusLine = response.getStatusLine();
@@ -66,7 +66,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         Headers allHeaders = response.headers();
@@ -81,7 +81,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         String contentType = response.header("Content-Type");
@@ -93,7 +93,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         ResponseBody body = response.getBody();
@@ -106,7 +106,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE + "/" + _resourceId);
         ResponseBody body = response.getBody();
@@ -119,7 +119,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get(RESOURCE);
         ResponseBody body = response.getBody();
@@ -132,7 +132,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.body(ItemMock.getJsonItemForEdit());
         Response response = httpRequest.put(RESOURCE + "/" + _resourceId);
@@ -146,7 +146,7 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = URI;
+        RestAssured.baseURI = RESOURCE_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.delete(RESOURCE + "/" + _resourceId);
         ResponseBody body = response.getBody();
