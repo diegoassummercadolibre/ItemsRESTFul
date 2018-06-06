@@ -18,17 +18,24 @@ import org.junit.runners.MethodSorters;
 public class AppTest {
 
     private final String RESOURCE_API_URI = "http://localhost:8080";
+    private final String TEST_API_URI = "http://localhost:8081";
     private final String RESOURCE = "/items";
     private final String SUCCESS_MESSAGE = "\"status\":\"SUCCESS\"";
     private static String _resourceId;
 
     @Test
     public void a_validar_add() {
-        RestAssured.baseURI = RESOURCE_API_URI;
+        RestAssured.baseURI = TEST_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(ItemMock.getJsonItemForAdd());
-        Response response = httpRequest.post(RESOURCE);
+        Response response = httpRequest.get( RESOURCE + "/1");
         ResponseBody body = response.getBody();
+        String itemJSON = body.asString();
+
+        RestAssured.baseURI = RESOURCE_API_URI;
+        httpRequest = RestAssured.given();
+        httpRequest.body(itemJSON);
+        response = httpRequest.post(RESOURCE);
+        body = response.getBody();
         String bodyAsString = body.asString();
         Assert.assertEquals(bodyAsString.contains(SUCCESS_MESSAGE), true);
 
@@ -132,11 +139,17 @@ public class AppTest {
         while (_resourceId == null)
             TimeUnit.MICROSECONDS.sleep(500);
 
-        RestAssured.baseURI = RESOURCE_API_URI;
+        RestAssured.baseURI = TEST_API_URI;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.body(ItemMock.getJsonItemForEdit());
-        Response response = httpRequest.put(RESOURCE + "/" + _resourceId);
+        Response response = httpRequest.get( RESOURCE + "/2");
         ResponseBody body = response.getBody();
+        String itemJSON = body.asString();
+
+        RestAssured.baseURI = RESOURCE_API_URI;
+        httpRequest = RestAssured.given();
+        httpRequest.body(itemJSON);
+        response = httpRequest.put(RESOURCE + "/" + _resourceId);
+        body = response.getBody();
         String bodyAsString = body.asString();
         Assert.assertEquals(bodyAsString.contains(SUCCESS_MESSAGE), true);
     }
